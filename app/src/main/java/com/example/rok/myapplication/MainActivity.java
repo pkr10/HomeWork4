@@ -1,4 +1,5 @@
 package com.example.rok.myapplication;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
+            case R.id.next1:
+                Intent intent = new Intent(MainActivity.this,Main3Activity.class);
+                startActivity(intent);
+                break;
             case R.id.red:
                 r1.setBackgroundColor(Color.RED);
                 break;
@@ -53,10 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 i1.setImageResource(R.drawable.chicken);
                 t1.setText("CHICKEN");
                 item.setChecked(true);
-                count =12;
                 value =1;
+                count =0;
                 rotate(count);
-                title1(item,value);
                 break;
             case R.id.spa:
                 i1.setImageResource(R.drawable.spa);
@@ -65,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                 value =2;
                 count =0;
                 rotate(count);
-                title1(item,value);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -79,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
     }
     void twice2(MenuItem item){
         if(item.isChecked()==false){
-            i1.setScaleX(2);
-            i1.setScaleY(2);
+            i1.setScaleX((float)Math.sqrt(2));
+            i1.setScaleY((float) Math.sqrt(2));
             item.setChecked(true);
         }
         else{
@@ -90,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     void rotate(int count){
-        i1.setRotationY(30*count);
-        i1.setRotationX(30*count);
+        i1.setRotation(30*count);
+
     }
     void title1(MenuItem item,int value){
          if(value == 1){
@@ -99,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 t1.setText("겁나맛있는 치킨");
                 item.setChecked(true);
             }
-            else {
+            else if(item.isChecked()==true){
                 t1.setText("CHICKEN");
                 item.setChecked(false);
         }
@@ -109,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                t1.setText("새콤한 스파케티");
                 item.setChecked(true);
               }
-              else {
+              else if(item.isChecked()==true){
                   t1.setText("SPAGETTI");
                   item.setChecked(false);
               }
