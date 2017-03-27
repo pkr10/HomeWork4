@@ -57,18 +57,18 @@ public class MainActivity extends AppCompatActivity {
             case R.id.chicken:
                 i1.setImageResource(R.drawable.chicken);
                 t1.setText("CHICKEN");
-                item.setChecked(true);
                 value =1;
                 count =0;
                 rotate(count);
+                item.setChecked(true);
                 break;
             case R.id.spa:
                 i1.setImageResource(R.drawable.spa);
                 t1.setText("SPAGETTI");
-                item.setChecked(true);
                 value =2;
                 count =0;
                 rotate(count);
+                item.setChecked(true);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -97,25 +97,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
     void title1(MenuItem item,int value){
-         if(value == 1){
-            if(item.isChecked()==false) {
+         if(item.isChecked() == false){
+            if(value==1) {
                 t1.setText("겁나맛있는 치킨");
-                item.setChecked(true);
+
             }
-            else if(item.isChecked()==true){
-                t1.setText("CHICKEN");
-                item.setChecked(false);
+            else if(value==2){
+                t1.setText("새콤한 스파케티");
         }
+             item.setChecked(true);
         }
-    else if(value ==2){
-            if(item.isChecked()==false) {
-               t1.setText("새콤한 스파케티");
-                item.setChecked(true);
+        else{
+            if(value==1) {
+               t1.setText("CHICKEN");
+
               }
-              else if(item.isChecked()==true){
-                  t1.setText("SPAGETTI");
-                  item.setChecked(false);
+            else if(value==2){
+                t1.setText("SPAGETTI");
+
               }
+             item.setChecked(false);
           }
       }
     }
